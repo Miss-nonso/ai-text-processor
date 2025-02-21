@@ -103,7 +103,7 @@ export async function summarizeText(text) {
     console.log(result);
   } catch (error) {
     console.error("Summarization failed", error);
-    return "Error summarizing text";
+    return null;
   }
 }
 
@@ -111,12 +111,11 @@ export async function translateText(text, targetLang) {
   try {
     if ("ai" in self && "translator" in self.ai) {
       const translatorCapabilities = await self.ai.translator.capabilities();
-      translatorCapabilities.languagePairAvailable(
-        detectLanguage(text),
-        targetLang
-      );
+      translatorCapabilities.languagePairAvailable("es", "fr");
 
       const translator = await self.ai.translator.create({
+        sourceLanguage: detectLanguage(text),
+        targetLanguage: targetLang,
         sourceLanguage: detectLanguage(text),
         targetLanguage: targetLang,
         monitor(m) {
@@ -130,7 +129,9 @@ export async function translateText(text, targetLang) {
     }
   } catch (error) {
     console.error("Translation failed", error);
-    return { error: "Error translating text" };
+    return null;
+    // alert("Error translating text")
+    // return"Error translating text";
   }
 }
 
