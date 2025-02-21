@@ -25,6 +25,10 @@ export default function Message({
           onSummarize={onSummarize}
           onTranslate={onTranslate}
         />
+      )}  {message.lang && (
+        <p className="text-sm font-bold space-x-2  text-right text-white">
+          Detected: {message.lang}
+        </p>
       )}
     </div>
   );

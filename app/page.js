@@ -5,7 +5,7 @@ import Message from "./components/Message";
 import OutputDisplay from "./components/OutputDisplay";
 import TranslateOptions from "./components/TranslateOptions";
 import { detectLanguage, summarizeText, translateText } from "./utils/api";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
@@ -30,7 +30,7 @@ export default function Home() {
 
   const handleTranslate = async (text, lang) => {
     const translation = await translateText(text, lang);
-    typeof translation === "object" && toast("Unable to translate");
+    // typeof translation === "object" && toast("Unable to translate");
     setMessages((prev) => [
       ...prev,
       { text: translation, type: "translation" }
@@ -40,7 +40,7 @@ export default function Home() {
   console.log({ messages });
   return (
     <div className="chat-container">
-      <ToastContainer/>
+      {/* <ToastContainer/> */}
       {messages.length < 1 && <p>Type of paste your text in the input field</p>}
       {messages.map((msg, index) => (
         <Message

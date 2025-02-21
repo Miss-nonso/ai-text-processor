@@ -13,11 +13,6 @@ export default function OutputDisplay({ message, onSummarize, onTranslate }) {
       >
         Summarize
       </button>
-      {message.lang && (
-        <p className="text-sm font-bold space-x-2  text-right text-white">
-          Detected: {message.lang}
-        </p>
-      )}
     </div>
   );
 }
