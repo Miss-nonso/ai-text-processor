@@ -1,7 +1,7 @@
 import TranslateOptions from "./TranslateOptions";
 
 export default function OutputDisplay({ message, onSummarize, onTranslate }) {
-  console.log({message});
+  // console.log({message});
 
   return (
     <div className="flex items-center justify-end gap-4 mt-4">

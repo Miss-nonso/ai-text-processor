@@ -26,17 +26,18 @@ main {
   ); */
   height: 100vh;
   /* background-image: url(../public/purpleLines.gif); */
-  background-image: url(../public/blackGif.gif);
+  background-image: url(../public/starsGif.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-repeat: center;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 1rem;
+
+  @apply p-2 md:p-4;
 }
 
 @layer components {
   .chat-container {
-    @apply relative mt-8 px-4 border border-dashed border-purple-500 overflow-y-scroll  w-full  min-h-[90vh] bg-white shadow-md rounded-lg lg:mx-auto lg:max-w-[60%];
+    @apply relative my-2 mb-6 px-2 border border-dashed border-purple-500 overflow-y-scroll  w-full  min-h-[95vh] bg-white shadow-md rounded-lg md:min-h-[90h] md:mt-8 md:px-4 md:max-w-[80%] md:mx-auto lg:mx-auto lg:max-w-[50%];
     background-image: url(../public/chatImgBlack.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -64,7 +65,7 @@ main {
   }
 
   .output-box {
-    @apply bg-gray-700 text-white p-3 rounded-md pr-6 w-full min-w-[600px]  mt-10;
+    @apply bg-gray-700 text-white p-3 rounded-md pr-6 w-full   mt-10;
 
     border-radius: 0rem 1rem 1rem 1rem;
   }
