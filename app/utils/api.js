@@ -1,8 +1,4 @@
 export async function detectLanguage(text) {
-  if (!window.languageDetector) {
-    alert("Language detection not supported");
-    return;
-  }
   try {
     if ("ai" in self && "languageDetector" in self.ai) {
       const languageDetectorCapabilities =
@@ -34,6 +30,8 @@ export async function detectLanguage(text) {
       const results = await detector.detect(someUserText);
 
       return getLanguageName(results[0].detectedLanguage);
+    } else {
+      alert("Browser error");
     }
   } catch (error) {
     return error.message;
