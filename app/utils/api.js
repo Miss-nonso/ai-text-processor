@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export async function detectLanguage(text) {
   try {
     if ("ai" in self && "languageDetector" in self.ai) {
@@ -31,7 +33,7 @@ export async function detectLanguage(text) {
 
       return getLanguageName(results[0].detectedLanguage);
     } else {
-      alert("Browser error");
+      toast("Your browser is able to detact language");
     }
   } catch (error) {
     return error.message;
