@@ -50,7 +50,7 @@ export default function Home() {
       <div className="chats-wrapper">
         {messages.length < 1 && (
           <p className="bg-white mx-auto  border-dotted border-black border-2 text-center font-bold mt-[55%] p-8 text-[17px]">
-            Type or paste your text in the input field
+            Type or paste your text in the input field <br/> 👇
           </p>
         )}
         {messages.map((msg, index) => (

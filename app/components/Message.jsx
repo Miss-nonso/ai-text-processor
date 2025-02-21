@@ -27,7 +27,7 @@ export default function Message({
       >
         {message.text}
       </p>
-      <div className="flex justify-end items-center gap-3">
+      <div className="flex justify-end items-center gap-0 md:gap-3">
         {/* {message.type === "user" && index === allMessages.length - 1 ? (
           <OutputDisplay
             // message={allMessages[allMessages.length - 1]}
@@ -48,7 +48,7 @@ export default function Message({
         )}
 
         {message.lang && (
-          <p className="text-sm font-bold space-x-2  text-right text-white">
+          <p className="text-sm font-bold space-x-2 pl-2 text-right text-white">
             Detected: {message.lang}
           </p>
         )}
