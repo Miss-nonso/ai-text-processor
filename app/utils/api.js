@@ -33,7 +33,7 @@ export async function detectLanguage(text) {
 
       return getLanguageName(results[0].detectedLanguage);
     } else {
-      toast("Your browser is able to detact language");
+      toast.error("Your browser is able to detact language");
     }
   } catch (error) {
     return error.message;
