@@ -4,11 +4,8 @@ import ChatInput from "./components/ChatInput";
 import Message from "./components/Message";
 import OutputDisplay from "./components/OutputDisplay";
 import TranslateOptions from "./components/TranslateOptions";
-import {
-  detectLanguage,
-  summarizeText,
-  translateText
-} from "@/public/utils/api";
+
+import { detectLanguage, summarizeText, translateText } from "./utils/api";
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
