@@ -9,7 +9,7 @@ export default function ChatInput({ onSendMessage }) {
   };
 
   return (
-    <div className="flex mt-4">
+    <div className="chat-input flex mt-10">
       <input
         type="text"
         className="input-field"
@@ -17,7 +17,7 @@ export default function ChatInput({ onSendMessage }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button className="btn ml-2" onClick={handleSend}>
+      <button className="btn ml-2 py-2 px-4" onClick={handleSend}>
         ➤
       </button>
     </div>

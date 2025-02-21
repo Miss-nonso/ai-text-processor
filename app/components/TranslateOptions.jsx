@@ -4,7 +4,7 @@ export default function TranslateOptions({ text, onTranslate }) {
   const [language, setLanguage] = useState("es");
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center text-[14px]  space-x-2">
       <select
         className="input-field"
         onChange={(e) => setLanguage(e.target.value)}

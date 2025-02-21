@@ -28,7 +28,7 @@ export async function detectLanguage(text) {
 
       const someUserText = text;
       const results = await detector.detect(someUserText);
-      console.log({ results });
+
       return getLanguageName(results[0].detectedLanguage);
     }
   } catch (error) {
@@ -39,8 +39,18 @@ export async function detectLanguage(text) {
 export async function summarizeText(text) {
   if (text.length < 150) return null;
   try {
-    const response = await navigator.summarizer.summarize(text);
-    return response?.summary || "Summarization failed.";
+    if ('ai' in self && 'summarizer' in self.ai) {
+      console.log({selfiai: self.ai.summarizer.capabilities().available})
+      const summarizer = await ai.summarizer.create({
+        monitor(m) {
+          m.addEventListener('downloadprogress', (e) => {
+            console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);
+          });
+        }
+      });
+    }
+    // const response = await navigator.summarizer.summarize(text);
+    // return response?.summary || "Summarization failed.";
   } catch (error) {
     console.error("Summarization failed", error);
     return "Error summarizing text";
@@ -49,8 +59,11 @@ export async function summarizeText(text) {
 
 export async function translateText(text, targetLang) {
   try {
-    const response = await navigator.translator.translate(text, targetLang);
-    return response?.translatedText || "Translation failed.";
+    if ("ai" in self && "translator" in self.ai) {
+      const translatorCapabilities = await self.ai.translator.capabilities();
+      translatorCapabilities.languagePairAvailable('es', 'fr');
+      // 'readily'
+    }
   } catch (error) {
     console.error("Translation failed", error);
     return "Error translating text";
