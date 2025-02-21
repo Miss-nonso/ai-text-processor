@@ -20,7 +20,8 @@ export default function Message({
       </p>
       {message.type === "user" && (
         <OutputDisplay
-          message={allMessages[allMessages.length - 1]}
+          // message={allMessages[allMessages.length - 1]}
+          message={message}
           onSummarize={onSummarize}
           onTranslate={onTranslate}
         />

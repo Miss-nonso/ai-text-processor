@@ -25,26 +25,34 @@ main {
     #111 55%
   ); */
   height: 100vh;
-  background-image: url(../public/purpleLines.gif);
+  /* background-image: url(../public/purpleLines.gif); */
+  background-image: url(../public/blackGif.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-repeat: center;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
 }
 
 @layer components {
   .chat-container {
-    @apply relative mt-8 mx-auto overflow-y-scroll  max-w-[80%] min-h-[90vh] bg-white shadow-md rounded-lg p-4;
+    @apply relative mt-8 px-4 border border-dashed border-purple-500 overflow-y-scroll  w-full  min-h-[90vh] bg-white shadow-md rounded-lg lg:mx-auto lg:max-w-[60%];
+    background-image: url(../public/chatImgBlack.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
+  .chat-input-container {
+    @apply bg-white py-4 w-full absolute left-0 right-0 bottom-0 flex items-center;
+  }
   .chat-input {
-    position: absolute;
-    bottom: 1rem;
-    width: 95%;
+    width: 100%;
+
+    padding-inline: 0.5rem;
   }
 
   .input-field {
-    @apply w-full p-1 border border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300;
+    @apply w-full pr-3 p-2 border border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300;
   }
 
   .btn {
@@ -52,16 +60,17 @@ main {
   }
 
   .btn-secondary {
-    @apply border text-[14px] border-purple-600 bg-[transparent] text-black hover:bg-purple-700 hover:text-white focus:ring-2 focus:ring-purple-300;
+    @apply border text-[14px] border-purple-600 bg-white text-black hover:bg-purple-700 hover:text-white focus:ring-2 focus:ring-purple-300;
   }
 
   .output-box {
-    @apply bg-purple-200 p-3 rounded-md pr-6 text-gray-800 mt-10;
+    @apply bg-gray-700 text-white p-3 rounded-md pr-6 w-full min-w-[600px]  mt-10;
 
     border-radius: 0rem 1rem 1rem 1rem;
   }
 
   .output-box-reply {
+    @apply bg-gray-100;
     border-radius: 1rem 0rem 1rem 1rem;
   }
 }

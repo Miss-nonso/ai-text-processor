@@ -39,11 +39,11 @@ export async function detectLanguage(text) {
 export async function summarizeText(text) {
   if (text.length < 150) return null;
   try {
-    if ('ai' in self && 'summarizer' in self.ai) {
-      console.log({selfiai: self.ai.summarizer.capabilities().available})
+    if ("ai" in self && "summarizer" in self.ai) {
+      console.log({ selfiai: self.ai.summarizer.capabilities().available });
       const summarizer = await ai.summarizer.create({
         monitor(m) {
-          m.addEventListener('downloadprogress', (e) => {
+          m.addEventListener("downloadprogress", (e) => {
             console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);
           });
         }
@@ -61,8 +61,20 @@ export async function translateText(text, targetLang) {
   try {
     if ("ai" in self && "translator" in self.ai) {
       const translatorCapabilities = await self.ai.translator.capabilities();
-      translatorCapabilities.languagePairAvailable('es', 'fr');
-      // 'readily'
+      translatorCapabilities.languagePairAvailable("es", "fr");
+
+      const translator = await self.ai.translator.create({
+        sourceLanguage: "es",
+        targetLanguage: "fr",
+        monitor(m) {
+          m.addEventListener("downloadprogress", (e) => {
+            console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);
+          });
+        }
+      });
+
+      await translator.translate("Where is the next bus stop, please?");
+      // "Où est le prochain arrêt de bus, s'il vous plaît ?"
     }
   } catch (error) {
     console.error("Translation failed", error);
