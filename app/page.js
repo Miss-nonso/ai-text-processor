@@ -42,26 +42,29 @@ export default function Home() {
 
   console.log({ messages });
   return (
-    <div className="chat-container">
+    <div className="chat-container ">
       <ToastContainer />
-      {messages.length < 1 && <p>Type of paste your text in the input field</p>}
-      {messages.map((msg, index) => (
-        <Message
-          key={index}
-          message={msg}
-          allMessages={messages}
-          onTranslate={handleTranslate}
-          onSummarize={handleSummarize}
-          index={index}
-        />
-      ))}
-      {/* {messages.length > 0 && (
-        <OutputDisplay
-          message={messages[messages.length - 1]}
-          onSummarize={handleSummarize}
-          onTranslate={handleTranslate}
-        />
-      )} */}
+      <div className="bg-[#000000bb] text-purple-100 absolute left-0 right-0 w-full p-4 font-bold text-center text-[1.2rem]">
+        Textis AI
+      </div>
+      <div className="chats-wrapper">
+        {messages.length < 1 && (
+          <p className="bg-white mx-auto  border-dotted border-black border-2 text-center font-bold mt-[55%] p-8 text-[17px]">
+            Type or paste your text in the input field
+          </p>
+        )}
+        {messages.map((msg, index) => (
+          <Message
+            key={index}
+            message={msg}
+            allMessages={messages}
+            onTranslate={handleTranslate}
+            onSummarize={handleSummarize}
+            index={index}
+          />
+        ))}
+      </div>
+
       <ChatInput onSendMessage={handleSendMessage} />
     </div>
   );

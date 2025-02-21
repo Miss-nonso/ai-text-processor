@@ -19,7 +19,11 @@ export default function ChatInput({ onSendMessage }) {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button className="btn ml-2 py-2 px-4" onClick={handleSend}>
+        <button
+          className="btn ml-2 py-2 px-4"
+          type="submit"
+          onClick={handleSend}
+        >
           ➤
         </button>
       </div>
